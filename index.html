@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Scene builder</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    
+    <body>
+        <canvas id="canvas" width="400" height="400">
+            Please use a browser that supports "canvas"
+        </canvas>
+        <div>
+            <div>
+                <label for="translation-x">Position:</label>
+                <input type="text" id="translation-x" value="0" size="5px">
+                <input type="text" id="translation-y" value="0" size="5px">
+                <input type="text" id="translation-z" value="0" size="5px">
+            </div>
+            <div>
+                <label for="scale-x">Scale:</label>
+                <input type="text" id="scale-x" value="0.1" size="5px">
+                <input type="text" id="scale-y" value="0.1" size="5px">
+                <input type="text" id="scale-z" value="0.1" size="5px">
+            </div>
+            <div>
+                <label for="rotation-z">Rotation along z-axis (in deg):</label>
+                <input type="text" id="rotation-z" value="0.0" size="5px">
+            </div>
+            <div>
+                <label for="shape">Shape:</label>
+                <select name="shape" id="shape">
+                    <option value="quad">Quad</option>
+                    <option value="cube">Cube</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="button" id="add-button">ADD</button>
+            <button type="button" id="remove-button">REMOVE</button>
+        </div>
+        <div>
+            <label for="objects">GameObjects</label>
+            <select multiple id="objects" size="20"></select>
+        </div>
+
+        <script src="lib/webgl-utils.js"></script>
+        <script src="lib/webgl-debug.js"></script>
+        <script src="lib/cuon-utils.js"></script>
+        <script src="lib/cuon-matrix.js"></script>
+        <script src="src/shaders/vertex.js"></script>
+        <script src="src/shaders/fragment.js"></script>
+        <script src="src/objects/quad.js"></script>
+        <script src="src/objects/cube.js"></script>
+        <script src="src/scene.js"></script>
+        <script src="src/index.js"></script>
+    </body>
+</html>
