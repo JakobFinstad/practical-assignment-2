@@ -33,6 +33,8 @@ addButton.onclick = function() {
         scene.addObject(new Disk(name, radius, translation, rotation));
     } else if (shape.value == "cone") {
         scene.addObject(new Cone(name, scale, translation, rotation));
+    } else if (shape.value == "cylinder") {
+        scene.addObject(new Cylinder(name, scale, translation, rotation));
     }
     scene.draw();
 
