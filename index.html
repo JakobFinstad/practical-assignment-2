@@ -24,6 +24,11 @@
                 <input type="text" id="scale-z" value="0.1" size="5px">
             </div>
             <div>
+                <label for="radius">Radius:</label>
+                <input type="text" id="radius" value="0.1" size="5px">
+                <label>(For circular objects:)</label>
+            </div>
+            <div>
                 <label for="rotation-z">Rotation along z-axis (in deg):</label>
                 <input type="text" id="rotation-z" value="0.0" size="5px">
             </div>
@@ -32,6 +37,10 @@
                 <select name="shape" id="shape">
                     <option value="quad">Quad</option>
                     <option value="cube">Cube</option>
+                    <option value="squarePyramid">Square Pyramid</option>
+                    <option value="disk">Disk</option>
+                    <option value="cone">Cone</option>
+                    
                 </select>
             </div>
         </div>
@@ -52,6 +61,9 @@
         <script src="src/shaders/fragment.js"></script>
         <script src="src/objects/quad.js"></script>
         <script src="src/objects/cube.js"></script>
+        <script src="src/objects/squarePyramid.js"></script>
+        <script src="src/objects/disk.js"></script>
+        <script src="src/objects/cone.js"></script>
         <script src="src/scene.js"></script>
         <script src="src/index.js"></script>
     </body>
