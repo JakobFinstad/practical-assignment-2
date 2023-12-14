@@ -85,10 +85,10 @@ document.addEventListener('keydown', function(event) {
             translateObjects(selectedObjects, [0, 0, -0.1]);
             break;
         case 'r': // Rotate
-            rotateObjects(selectedObjects, 10);
+            rotateObjects(selectedObjects, -10);
             break;
         case 'e': // Rotate
-            rotateObjects(selectedObjects, -10);
+            rotateObjects(selectedObjects, 10);
             break;
         case 's': // Scale up
             scaleObjects(selectedObjects, 0.1);

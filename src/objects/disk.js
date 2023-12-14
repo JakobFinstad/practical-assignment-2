@@ -2,6 +2,7 @@ class Disk {
     constructor(name, radius, translation, rotation) {
         this.name = name;
         this.shape = shape;
+        this.scale = [0.1,0.1,0.1];
         this.radius = radius;
         this.translation = translation;
         this.rotation = rotation;
