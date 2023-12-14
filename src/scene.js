@@ -61,5 +61,9 @@ class Scene {
 
             this.gl.drawElements(this.gl.TRIANGLES, numberOfVertices, this.gl.UNSIGNED_BYTE, 0);
         }
+        
+    }
+    getObjectByName(name) {
+        return this.objects.find(obj => obj.name === name);
     }
 }

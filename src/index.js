@@ -52,10 +52,99 @@ removeButton.onclick = function() {
 
 function updateObjectList() {
     objects.innerHTML = "";
+    objects.setAttribute("multiple", "multiple");
 
     for (let object of scene.objects) {
         const option = document.createElement("option");
+        option.value = object.name;
         option.innerHTML = object.name;
         objects.appendChild(option);
     }
 }
+
+document.addEventListener('keydown', function(event) {
+    const selectedObjects = objects.selectedOptions;
+    
+    switch (event.key) {
+        case 'ArrowUp': // Translate up
+            translateObjects(selectedObjects, [0, 0.1, 0]);
+            break;
+        case 'ArrowDown': // Translate down
+            translateObjects(selectedObjects, [0, -0.1, 0]);
+            break;
+        case 'ArrowLeft': // Translate left
+            translateObjects(selectedObjects, [-0.1, 0, 0]);
+            break;
+        case 'ArrowRight': // Translate right
+            translateObjects(selectedObjects, [0.1, 0, 0]);
+            break;
+        case 'w': // Translate forward
+            translateObjects(selectedObjects, [0, 0, 0.1]);
+            break;
+        case 'x': // Translate backward
+            translateObjects(selectedObjects, [0, 0, -0.1]);
+            break;
+        case 'r': // Rotate
+            rotateObjects(selectedObjects, 10);
+            break;
+        case 'e': // Rotate
+            rotateObjects(selectedObjects, -10);
+            break;
+        case 's': // Scale up
+            scaleObjects(selectedObjects, 0.1);
+            break;
+        case 'd': // Scale down
+            scaleObjects(selectedObjects, -0.1);
+            break;    
+        
+    }
+
+    scene.draw();
+});
+
+function translateObjects(names, translation) {
+    for (let i = 0; i < names.length; i++) {
+        let obj = scene.getObjectByName(names[i].value);
+        if (obj) {
+            obj.translate(translation);
+            
+        }
+    };
+}
+
+function scaleObjects(names, scale) {
+    for (let i = 0; i < names.length; i++) {
+        let obj = scene.getObjectByName(names[i].value);
+        if (obj) {
+            obj.scaleObject(scale);
+        }
+    };
+}
+
+function rotateObjects(names, rotation) {
+    for (let i = 0; i < names.length; i++) {
+        let obj = scene.getObjectByName(names[i].value);
+        if (obj) {
+            obj.rotateObject(rotation);
+        }
+    };
+}
+
+const resetButton = document.getElementById("reset-button");
+
+resetButton.onclick = function() {
+    const selectedObjects = objects.selectedOptions;
+    resetTransformations(selectedObjects);
+    scene.draw();
+};
+
+function resetTransformations(names) {
+    for (let i = 0; i < names.length; i++) {
+        let obj = scene.getObjectByName(names[i].value);
+        if (obj) {
+            obj.resetTransform();
+        }
+    };
+}
+
+
